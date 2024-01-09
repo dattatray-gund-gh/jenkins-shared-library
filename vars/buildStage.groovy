@@ -12,6 +12,6 @@ def call(String name = null) {
 //        def config = SystemConfig.loadConfig(configPath)
 //        def configValue = config.getProperty(ApplicationConstants.NAME)
 //        def greeting = new Utils().sayHello(configValue)
-        echo "Greeting: $greeting"
+        echo "Greeting: $libPath"
     }
 }

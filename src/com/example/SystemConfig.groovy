@@ -6,7 +6,7 @@ class SystemConfig {
 
     private static SystemConfig INSTANCE = null;
 
-    private Properties properties
+    private Properties properties = new Properties()
 
     private SystemConfig() {
         println("Loading properties...")

@@ -13,7 +13,11 @@ def call(String name = null) {
 }
 
 private Properties loadSystemConfig() {
-    def config = libraryResource('config.properties')
+    def resource = libraryResource
+
+    echo "Loading system config from: $resource"
+
+    def config = resource 'config.properties'
     def sysConfig = new Properties()
     sysConfig.load(new StringReader(config))
     return sysConfig

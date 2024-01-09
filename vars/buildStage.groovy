@@ -13,8 +13,7 @@ def call(String name = null) {
 }
 
 private Properties loadSystemConfig() {
-    def config = libraryResource 'config.properties'
     def sysConfig = new Properties()
-    sysConfig.load(new StringReader(config))
+    sysConfig.load(new StringReader(libraryResource('config.properties')))
     return sysConfig
 }

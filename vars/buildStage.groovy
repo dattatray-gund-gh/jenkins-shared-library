@@ -9,8 +9,6 @@ def call(String name = null) {
 
         def properties = new Properties()
         properties.load(new StringReader(resource))
-
-        //def props = readProperties text: resource
         def configname = properties.getProperty(ApplicationConstants.NAME)
         echo "Greeting: $configname"
     }

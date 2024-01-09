@@ -9,7 +9,7 @@ class SystemConfig {
     private Properties properties
 
     private SystemConfig() {
-        prinln "Loading properties..."
+        println("Loading properties...")
         properties.load(this.getClass().getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE))
     }
 
@@ -28,11 +28,11 @@ class SystemConfig {
             throw new IllegalStateException("Properties cannot be null")
         }
 
-        println "Getting property for key: $configKey"
+        println("Getting property for key: $configKey")
 
         // print all properties
         properties.each { key, value ->
-            println "$key = $value"
+            println("$key = $value")
         }
 
         return properties.getProperty(configKey)

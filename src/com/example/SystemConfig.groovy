@@ -13,7 +13,7 @@ class SystemConfig {
         try {
             println("Loading properties...")
             properties = new Properties()
-            InputStream inputStream = getClass().getResourceAsStream("config.properties")
+            InputStream inputStream = getClass().getResourceAsStream("/config.properties")
 
             if (inputStream != null) {
                 properties.load(inputStream)

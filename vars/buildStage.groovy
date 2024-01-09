@@ -5,7 +5,7 @@ import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
     script {
-        def libPath = "${JENKINS_HOME}"
+        def libPath = "${JENKINS_HOME}/workspace"
         sh "ls -l ${libPath}"
 //        def configPath = "${libPath}/resources/config.properties"
 //        echo "Config Path: $configPath"

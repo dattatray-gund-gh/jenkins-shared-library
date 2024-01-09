@@ -9,3 +9,9 @@ F
 vars/buildStage.groovy,7/2/72bc1ecbbfb10d36fa86a363c1f430a79408cf6e
 ^
 .src/test/groovy/com/example/jsl/BuildTest.java,f/5/f5ae3c0fcfbcc7701f87afc48c7c68439ae9d2e7
+L
+src/com/example/Build.groovy,6/f/6f4cdb4a0d0d1a85d5aa6acf5e6a0e5a21241018
+L
+src/com.example/Utils.groovy,d/9/d91c77b4b80532d6071ab897549be98d392bdda3
+L
+src/com/example/Utils.groovy,e/c/ec05ab8078e46600b433a1528d6b590fb0da342b

@@ -6,17 +6,12 @@ class SystemConfig {
 
     private static SystemConfig INSTANCE = null;
 
-    private Properties properties = new Properties()
+    private Properties properties;
 
     private SystemConfig() {
         println("Loading properties...")
-        def clazz = this.getClass()
-        println("Class: $clazz")
-
-        def stream = clazz.getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE)
-        println("Stream: $stream")
-
-        properties.load(stream)
+        def properties = new Properties()
+        properties.load(getClass().getResourceAsStream("/config.properties"))
     }
 
     static SystemConfig getInstance() {

@@ -9,13 +9,8 @@ class SystemConfig {
     private Properties properties
 
     private SystemConfig() {
-        properties = loadSystemConfig()
-    }
-
-    private Properties loadSystemConfig() {
-        Properties properties = new Properties()
-        properties.load(getClass().getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE))
-        return properties
+        prinln "Loading properties..."
+        properties.load(this.getClass().getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE))
     }
 
     static SystemConfig getInstance() {

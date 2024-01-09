@@ -5,7 +5,7 @@ import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
     script {
-        def config = SystemConfig.loadConfig(this)
+        def config = SystemConfig.loadConfig()
 //        def configValue = config.getProperty(ApplicationConstants.NAME)
 //        def greeting = new Utils().sayHello(configValue)
         echo "Greeting: $config"

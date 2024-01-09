@@ -9,8 +9,14 @@ class SystemConfig {
     private Properties properties
 
     private SystemConfig() {
-        println("Loading properties...")
-        properties.load(this.getClass().getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE))
+        echo "Loading properties..."
+        def clazz = this.getClass()
+        echo "Class: $clazz"
+
+        def stream = clazz.getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE)
+        echo "Stream: $stream"
+
+        properties.load(stream)
     }
 
     static SystemConfig getInstance() {
@@ -28,11 +34,11 @@ class SystemConfig {
             throw new IllegalStateException("Properties cannot be null")
         }
 
-        println("Getting property for key: $configKey")
+        echo "Getting property for key: $configKey"
 
         // print all properties
         properties.each { key, value ->
-            println("$key = $value")
+            echo "$key = $value"
         }
 
         return properties.getProperty(configKey)

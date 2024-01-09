@@ -4,8 +4,8 @@ class SystemConfig {
     static Properties loadConfig() {
         def properties = new Properties()
         try {
-            def currentDir = System.getProperty("user.dir")
-            properties.load(new FileInputStream("${currentDir}/resources/config.properties"))
+            def configFile = new File(this.class.protectionDomain.codeSource.location.path).parent + "/resources/config.properties"
+            properties.load(new FileInputStream(configFile))
         } catch (IOException e) {
             throw new RuntimeException("Failed to load configuration properties.", e)
         }

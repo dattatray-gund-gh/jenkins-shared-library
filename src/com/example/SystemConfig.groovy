@@ -1,21 +1,31 @@
 package com.example
 
-import com.example.constants.ApplicationConstants
+import java.io.InputStream
+import java.util.Properties
 
 class SystemConfig {
 
-    private static SystemConfig INSTANCE = null;
+    private static SystemConfig INSTANCE = null
 
-    private Properties properties;
+    private Properties properties
 
     private SystemConfig() {
-        println("Loading properties...")
-        def properties = new Properties()
-        properties.load((InputStream) getClass().getResourceAsStream("/config.properties"))
+        try {
+            println("Loading properties...")
+            properties = new Properties()
+            InputStream inputStream = getClass().getResourceAsStream("config.properties")
+
+            if (inputStream != null) {
+                properties.load(inputStream)
+            } else {
+                throw new IllegalStateException("Unable to load config.properties. File not found.")
+            }
+        } catch (Exception e) {
+            throw new IllegalStateException("Error loading properties: ${e.message}", e)
+        }
     }
 
     static SystemConfig getInstance() {
-
         if (INSTANCE == null) {
             INSTANCE = new SystemConfig()
         }
@@ -24,14 +34,13 @@ class SystemConfig {
     }
 
     String getProperty(String configKey) {
-
-        if(properties == null) {
+        if (properties == null) {
             throw new IllegalStateException("Properties cannot be null")
         }
 
         println("Getting property for key: $configKey")
 
-        // print all properties
+        // Print all properties
         properties.each { key, value ->
             println("$key = $value")
         }

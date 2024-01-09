@@ -5,7 +5,11 @@ import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
     script {
-        def systemConfig = SystemConfig.getInstance()
+
+
+
+        def config = libraryResource('config.properties')
+        def systemConfig = SystemConfig.getInstance(config)
         def updatedName = name ?: systemConfig.getProperty(ApplicationConstants.NAME)
         Utils utils = new Utils()
         echo "Greeting: ${utils.sayHello(updatedName)}"

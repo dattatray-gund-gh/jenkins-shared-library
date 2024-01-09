@@ -5,7 +5,6 @@ final class SystemConfig {
     Properties properties = new Properties()
 
     private SystemConfig(){
-        def resource = libraryResource 'config.properties'
         properties.load(new StringReader(resource))
     }
 

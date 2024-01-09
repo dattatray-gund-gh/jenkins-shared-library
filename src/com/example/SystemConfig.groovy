@@ -1,13 +1,10 @@
 package com.example
 
 class SystemConfig {
-    static Properties loadConfig(String configPath) {
+    static Properties loadConfig() {
         def properties = new Properties()
-        try {
-            properties.load(new FileInputStream(configPath))
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load configuration properties.", e)
-        }
+        def configFile = new File(getClass().getResource('/resources/config.properties').toURI())
+        properties.load(configFile.newReader())
         return properties
     }
 }

@@ -13,11 +13,16 @@ def call(String name = null) {
 }
 
 private Properties loadSystemConfig() {
-    def resource = libraryResource
+   libraryResource {
+       def r = getProperties()
+       r.forEach { k, v ->
+           echo "Key: $k, Value: $v"
+       }
+   }
 
     echo "Loading system config from: $resource"
 
-    def config = resource 'config.properties'
+    def config = libraryResource 'config.properties'
     def sysConfig = new Properties()
     sysConfig.load(new StringReader(config))
     return sysConfig

@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-import com.example.SystemConfig
 import com.example.Utils
 import com.example.constants.ApplicationConstants
 

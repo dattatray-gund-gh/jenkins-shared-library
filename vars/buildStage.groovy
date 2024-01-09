@@ -1,18 +1,13 @@
 #!/usr/bin/env groovy
-import com.example.SystemConfig
-import com.example.Utils
+
 import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
     script {
-       // def config = SystemConfig.loadConfig()
-//        def configValue = config.getProperty(ApplicationConstants.NAME)
-//        def greeting = new Utils().sayHello(configValue)
 
+        // Load config.properties file from resources folder and read the name property
         def properties = new Properties()
-        def configFile = new File(this.getClass().getResource('/resources/config.properties').toURI())
-        properties.load(configFile.newReader())
-
+        properties.load(getClass().getClassLoader().getResourceAsStream("config.properties"))
         def config = properties.getProperty(ApplicationConstants.NAME)
         echo "Greeting: $config"
     }

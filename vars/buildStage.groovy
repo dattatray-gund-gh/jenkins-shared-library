@@ -5,7 +5,9 @@ import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
     script {
-        def config = SystemConfig.loadConfig()
+        def configPath = "${JENKINS_HOME}/jobs/${JOB_NAME}/workspace/my-shared-library/resources/config.properties"
+        echo "Config Path: $configPath"
+        def config = SystemConfig.loadConfig(configPath)
         def configValue = config.getProperty(ApplicationConstants.NAME)
         def greeting = new Utils().sayHello(configValue)
         echo "Greeting: $greeting"

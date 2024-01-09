@@ -3,5 +3,8 @@
 import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
-    echo "Greeting: $libraryResource"
+    def resource = libraryResource 'config.properties'
+    def props = readProperties text: resource
+    def configname = props[ApplicationConstants.NAME]
+    echo "Greeting: $configname"
 }

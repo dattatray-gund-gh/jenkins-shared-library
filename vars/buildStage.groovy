@@ -4,7 +4,8 @@ import com.example.Utils
 import com.example.constants.ApplicationConstants
 
 def call(String name = null) {
-    String toSomeValue = name ?: SystemConfig.getInstance().getProperty(ApplicationConstants.NAME)
+    def sysConfig = SystemConfig.getInstance()
+    String toSomeValue = name ?: sysConfig.getProperty(ApplicationConstants.NAME)
     def greeting = new Utils().sayHello(toSomeValue)
     echo "Greeting: $greeting"
 }

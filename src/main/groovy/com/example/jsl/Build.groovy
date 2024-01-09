@@ -1,8 +1,7 @@
 package com.example.jsl
 
 class Build {
-
-    def build(String buildStage) {
-        println "Building $buildStage..."
+    String build(String stage) {
+        return "Building $stage..."
     }
 }

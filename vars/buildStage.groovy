@@ -1,8 +1,6 @@
-import com.example.jsl.Build
+#!/usr/bin/env groovy
 
-def call() {
-    def buildStage = env.BUILD_STAGE ?: 'dev'
-    def build = new Build()
-    def result = build.build(buildStage)
-    println "Hello from buildStage.groovy ${result}"
+def call(String name = "India") {
+    def greeting = com.example.Utils.sayHello(name)
+    echo "Greeting: $greeting"
 }

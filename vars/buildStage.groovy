@@ -13,12 +13,6 @@ def call(String name = null) {
 }
 
 private Properties loadSystemConfig() {
-   libraryResource {
-       def r = getProperties()
-       r.forEach { k, v ->
-           echo "Key: $k, Value: $v"
-       }
-   }
 
     echo "Loading system config from: $resource"
 

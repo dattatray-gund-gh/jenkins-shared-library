@@ -11,7 +11,7 @@ class SystemConfig {
     private SystemConfig() {
         println("Loading properties...")
         def properties = new Properties()
-        properties.load(getClass().getResourceAsStream("/config.properties"))
+        properties.load((InputStream) getClass().getResourceAsStream("/config.properties"))
     }
 
     static SystemConfig getInstance() {

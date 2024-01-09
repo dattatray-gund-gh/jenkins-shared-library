@@ -14,7 +14,7 @@ class SystemConfig {
 
     private Properties loadSystemConfig() {
         Properties properties = new Properties()
-        properties.load(getClass().getResourceAsStream(ApplicationConstants.SYSTEM_CONFIG_FILE))
+        properties.load(getClass().getResourceAsStream("/" + ApplicationConstants.SYSTEM_CONFIG_FILE))
         return properties
     }
 
